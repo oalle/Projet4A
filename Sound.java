@@ -1,52 +1,69 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package email;
 import javazoom.jl.player.advanced.*;
         import java.io.*;
 import javazoom.jl.player.Player;
 /**
- *
- * @author nathan
+ * <b>Sound gère tous ce qui est rapport avec la lecture du fichier mp3.</b>
+ * Sound est caractérisé par les informations suivantes :
+ * <ul>
+ * <li>Un player pour lire notre fichier audio.</li>
+ * </ul>
+
+ * @author nathan besse, victor chantrel
+ * @version 1.0
  */
   public class Sound {
                 private Player player;
-                public Sound(String path) throws Exception {
+                /**
+                 * Créer notre player avec le fichier son préciser dans path
+                 * @param path le chemin pour accéder au fichier son
+                 * @throws Exception 
+                 */
+                public Sound(String path) throws Exception 
+                {
                         BufferedInputStream in = new BufferedInputStream(new FileInputStream(new File(path)));
                         player = new Player(in);
                 }
                 
-                public Sound(String path,PlaybackListener listener) throws Exception {
-                        InputStream in = (InputStream)new BufferedInputStream(new FileInputStream(new File(path)));
-                        
-                }
-                
-                public void play() throws Exception {
+               
+                /**
+                 * Lance la lecture de notre fichier son avecc le player
+                 * @throws Exception 
+                 */
+                public void play() throws Exception 
+                {
                         if (player != null) {
                                 
                                 isPlaying = true;
-                                System.out.println("la");
                                 player.play();
                         }
                 }
-                public void close() { if (player != null) player.close(); }
-                public void play(int begin,int end) throws Exception {
-                        if (player != null) {
-                                isPlaying = true;
-                               
-                        }
+                /**
+                 * Ferme le Player
+                 */
+                public void close() 
+                { 
+                    if (player != null) player.close(); 
                 }
-                
-                public void stop() throws Exception {
-                        if (player != null) {
+
+                /**
+                 * Arrete la lecture du fichier son
+                 * @throws Exception 
+                 */
+                public void stop() throws Exception 
+                {
+                        if (player != null) 
+                        {
                                 isPlaying = false;
                                 
                         }
                 }
-                
-                public boolean isPlaying() {
+                /**
+                 * Renvoie si le fichier est en cours de lecture ou non
+                 * @return le fichier est en cours de lecture ou non
+                 */
+                public boolean isPlaying() 
+                {
                         return isPlaying;
                 }
 

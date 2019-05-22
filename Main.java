@@ -2,7 +2,17 @@ package email;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+/**
+ * <b>Main nous permet de lancer notre programme.</b>
+ * Le main est caractérisé par les informations suivantes :
+ * <ul>
+ * <li>Les dimensions de la fenêtre.</li>
+ * <li>La fenêtre en elle même.</li>
+ * </ul>
 
+ * @author nathan besse, victor chantrel
+ * @version 1.0
+ */
 public class Main {
 
 	public static void main(String[] args) {
